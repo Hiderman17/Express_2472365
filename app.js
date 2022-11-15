@@ -1,7 +1,8 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const hbs = require('hbs')
-const port = 8282
+const port = process.env.PORT
 
 app.use(express.static('public'))
 
@@ -211,14 +212,14 @@ app.get('/modificar-cita', (req, res) => {
 //     res.sendFile(__dirname + '/public/views/home.hbs')
 // })
 
-app.get('/contacto', (req, res) => {
-    res.send('Contacto')
-})
+// app.get('/contacto', (req, res) => {
+//     res.send('Contacto')
+// })
 
-app.get('*', (req, res) => {
-    //res.send('Página no encontrada')
-    res.sendFile(__dirname + '/public/views/404.hbs');
-})
+// app.get('*', (req, res) => {
+//     //res.send('Página no encontrada')
+//     res.sendFile(__dirname + '/public/views/404.hbs');
+// })
 
 app.listen(port, () => {
     console.log(`Escuchando por el puerto ${port}`)
